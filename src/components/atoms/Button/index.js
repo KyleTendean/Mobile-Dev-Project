@@ -13,10 +13,10 @@ export default Button;
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#Ff7300',
+    backgroundColor: '#C238CE',
     alignItems: 'center',
     paddingVertical: 15,
-    borderRadius: 10,
+    borderRadius: 50,
   },
   buttonText: {
     color: 'white',

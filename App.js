@@ -1,7 +1,7 @@
 //import
 import React from 'react';
 import CoreComponents from './src/CoreComponents';
-import SignIn from './src/screens/SignIn';
+import SignIn from './src/screens/Register';
 
 //Function Component
 const App = () => {

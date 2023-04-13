@@ -1,69 +1,90 @@
-import {StyleSheet, Text, View, Button, TextInput, TouchableOpacity} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React, {useState, useEffect} from 'react';
+import TextInput from '../../components/molecules/TextInput';
+import Button from '../../components/atoms/Button';
+import Gap from '../../components/atoms/Gap';
 
 const SignIn = () => {
-  return (
-    <View style={{flex: 1, backgroundColor: '#FFFAF0'}}>
-      <Text style={styles.welcome}>Welcome</Text>
-      <Text style={styles.text}>Username</Text>
+  const [name, setName] = useState('');
+  const [userName, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [address, setAddress] = useState('');
+  const [phoneNumber, setPhone] = useState('');
+  
 
-      <TextInput style={styles.textInput}
-       placeholder="Masukan Username anda" 
-       placeholderTextColor={'grey'} 
-        />
-      <Text style={styles.text} >Password</Text> 
-      <TextInput style={styles.textInput}
-       placeholder="Masukan Password anda"
-       placeholderTextColor={'grey'} 
-        />
-    
-      <TouchableOpacity style={styles.button1}>
-        <Text  style={styles.button}>Sing In</Text>
-        
-      </TouchableOpacity>
+  const handleSignIn = () => {
+    const data = {
+      userName: userName,
+      name: name,
+      email: email,
+      address: address,
+      phoneNumber: phoneNumber,
+
+    };
+
+    console.log(data);
+  };
+
+  return (
+
+    <View style={styles.container}>
+      <Text style={styles.register}>Register</Text>
+      <Gap height={40} />
+
+      <TextInput
+        label="Name"
+        placeHolder="Masukan nama lengkap anda"
+        value={name}
+        onChangeText={e => setName(e)}
+      />
+
+<Gap height={20} />
+      <TextInput
+        label="Username"
+        placeHolder="Masukan username anda"
+        value={userName}
+        onChangeText={e => setUsername(e)}
+      />
+      
+<Gap height={20} />
+      <TextInput
+        label="Email"
+        placeHolder="Masukan email anda"
+        value={email}
+        onChangeText={e => setEmail(e)}
+      />
+
+<Gap height={20} />
+      <TextInput
+        label="Address"
+        placeHolder="Masukan alamat anda"
+        value={address}
+        onChangeText={e => setAddress(e)}
+      />
+
+<Gap height={20} />
+      <TextInput
+        label="Phone Number"
+        placeHolder="Masukan nomor telepon anda"
+        value={phoneNumber}
+        onChangeText={e => setPhone(e)}
+      />
+      <Gap height={40} />
+      <Button label="Register" onPress={handleSignIn} />
     </View>
+    
   );
 };
 
 export default SignIn;
 
 const styles = StyleSheet.create({
-  welcome: {
+  container: {
+    marginHorizontal: 20,
+    marginTop: 10,
+  },
+  register: {
     fontSize: 30,
     color: 'black',
-    fontWeight: 'bold',
-    margin: 10,
   },
-  textInput: {
-    borderColor: 'grey',
-    borderWidth: 3,
-    borderRadius: 15,
-    margin: 10,
-    padding: 18,
-
-  },
-  text: {
-    fontSize: 20,
-    color: 'black',
-    fontWeight: 'bold',
-    margin: 10,
-  },
-  button: {
-    fontSize: 15,
-    color: 'black',
-    fontWeight: 'bold',
-    margin: 10,
-    textAlign: 'center'  
-  },
-  button1 :{
-    backgroundColor: '#Ff7300', 
-    paddingVertical: 10,
-    marginTop: 50,
-    marginHorizontal: 10,
-    borderRadius: 15,
-    elevation: 2, 
-
-  }
-  
-
 });
